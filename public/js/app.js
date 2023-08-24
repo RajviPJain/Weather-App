@@ -9,9 +9,9 @@ const message2=document.querySelector('#msg2')
 form.addEventListener('submit',(e)=>{
       e.preventDefault()
       console.log(l.value)
-      message1.innerText="Loading"
+      message1.innerText="Loading..."
 
-      fetch('http://localhost:3000/weather?address='+l.value)
+      fetch('/weather?address='+l.value)
 .then((response)=>{
     response.json().then((data)=>{
        console.log(data)

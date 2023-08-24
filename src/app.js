@@ -7,6 +7,8 @@ const weathercode=require('./utils/weather')
 
 const app=express()
 
+const port=process.env.PORT||3000
+
 const publicDirectoryPath=path.join(__dirname,'../public')
 const partialsPath=path.join(__dirname,'../templates/partials')
 const viewspath=path.join(__dirname,'../templates/views')
@@ -56,8 +58,8 @@ app.get('/weather',(req,res)=>{
                 else{
                     
                     res.send([{
-                        forecast:result.curr_temp,
-                        description:result.wd,
+                        forecast:"Current Temperature is "+result.curr_temp+' degrees Celsius. It is more likely be '+result.wd,
+
                         location:data.place_name,
                         address:req.query.address
                     }])
@@ -87,6 +89,6 @@ app.get('/*',(req,res)=>{
     })
 
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Server is running")
 })
