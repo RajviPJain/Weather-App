@@ -10,6 +10,7 @@ form.addEventListener('submit',(e)=>{
       e.preventDefault()
       console.log(l.value)
       message1.innerText="Loading..."
+      message2.innerText=""
 
       fetch('/weather?address='+l.value)
 .then((response)=>{
